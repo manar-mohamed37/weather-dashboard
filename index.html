@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق الطقس الذكي</title>
+    <!-- مكتبة أيقونات FontAwesome -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الحاوية الرئيسية للتطبيق -->
+    <div class="weather-container animate-fade">
+        
+        <!-- صندوق البحث -->
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="اكتب اسم المدينة بالإنجليزية... (مثل: Cairo)">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+
+        <!-- رسالة الخطأ في حال كتابة اسم مدينة خاطئ -->
+        <div class="error-message id="error-box" style="display: none;">
+            <p>عذراً، لم نتمكن من العثور على هذه المدينة. يرجى التحقق من الاسم.</p>
+        </div>
+
+        <!-- تفاصيل الطقس الرئيسية (تظهر ديناميكياً) -->
+        <div class="weather-details" id="weather-details">
+            <h2 id="city-name">القاهرة</h2>
+            <p id="date-today">الثلاثاء، 22 سبتمبر</p>
+            
+            <div class="weather-icon-box">
+                <!-- الأيقونة تتغير بالـ JS بناءً على حالة الجو -->
+                <i class="fas fa-sun" id="weather-icon"></i>
+            </div>
+            
+            <div class="temp-box">
+                <span id="temperature">28</span><span class="unit">°م</span>
+            </div>
+            
+            <p id="weather-desc">صافي / مشمس</p>
+
+            <!-- الإحصائيات الإضافية في الأسفل -->
+            <div class="extra-info">
+                <div class="info-card">
+                    <i class="fas fa-droplet"></i>
+                    <div>
+                        <span id="humidity">60%</span>
+                        <p>الرطوبة</p>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <i class="fas fa-wind"></i>
+                    <div>
+                        <span id="wind-speed">12 كم/س</span>
+                        <p>سرعة الرياح</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

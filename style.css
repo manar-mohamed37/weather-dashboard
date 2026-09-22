@@ -1,0 +1,132 @@
+@import url('https://googleapis.com');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* الخلفية الافتراضية للجسم (تتغير بالـ JS) */
+body {
+    background: linear-gradient(to bottom, #2c3e50, #3498db);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background 0.8s ease; /* سلاسة عند تغير لون الخلفية */
+}
+
+/* ستايلات حالات الطقس المختلفة التي سيضيفها الـ JS ديناميكياً */
+body.clear-sky { background: linear-gradient(to bottom, #f7b733, #fc4a1a); } /* مشمس */
+body.clouds { background: linear-gradient(to bottom, #bdc3c7, #2c3e50); }    /* غائم */
+body.rain { background: linear-gradient(to bottom, #3a7bd5, #3a6073); }      /* ممطر */
+body.snow { background: linear-gradient(to bottom, #eef2f3, #8e9eab); }      /* مثلج */
+
+.weather-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px); /* تأثير الزجاج الضبابي العصري */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 450px;
+    color: white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-box input {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    color: #333;
+}
+
+.search-box button {
+    width: 48px;
+    height: 48px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background: white;
+    color: #3498db;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.search-box button:hover {
+    transform: scale(1.05);
+    background: #f0f0f0;
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.3);
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 1px solid rgba(239, 68, 68, 0.5);
+}
+
+#city-name { font-size: 28px; font-weight: 700; margin-bottom: 5px; }
+#date-today { font-size: 14px; color: #e0e0e0; margin-bottom: 20px; }
+
+.weather-icon-box {
+    font-size: 70px;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite; /* تأثير طفو لطيف للأيقونة */
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.temp-box {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+.temp-box .unit { font-size: 24px; font-weight: 400; vertical-align: super; }
+
+#weather-desc { font-size: 18px; text-transform: capitalize; margin-bottom: 30px; color: #f8f9fa; }
+
+.extra-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 20px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 15px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: right;
+}
+
+.info-card i { font-size: 22px; color: #fff; }
+.info-card span { font-weight: bold; font-size: 15px; block; }
+.info-card p { font-size: 12px; color: #dcdde1; }
+
+.animate-fade { animation: fadeIn 0.5s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
